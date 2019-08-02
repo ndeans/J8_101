@@ -23,7 +23,10 @@ public class Aggregator extends BaseOperation {
 	}
 	
 	private void run() {
+		
 		System.out.println("ok. whatever...");
+		
+		// read the file and create a HashMap 
 		try {
 			
 			BufferedReader reader = getReader();
@@ -32,9 +35,9 @@ public class Aggregator extends BaseOperation {
 			while ((line = reader.readLine()) != null) {
 				String[] column = line.split("\t");
 				Integer clientId = Integer.parseInt(column[1]);
-				
 				map_in1.put(clientId, column[3]);
 			}
+			
 			
 			
 		} catch (FileNotFoundException e) {
@@ -44,6 +47,10 @@ public class Aggregator extends BaseOperation {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+
+			
+			
 	}
 	
 	private BufferedReader getReader() throws FileNotFoundException {
